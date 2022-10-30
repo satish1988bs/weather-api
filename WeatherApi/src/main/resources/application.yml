@@ -1,0 +1,17 @@
+server:
+  port:
+    8082
+  servlet.context-path:
+    /weatherapi  
+spring:
+  application:
+    name: weatherservice
+  profiles:
+    active: dev
+email: yaml@satish.com    
+weather:
+  api:
+    appid: d2929e9483efc82c82c32ee7e02d563e
+    mode: json
+    units: metric
+      
