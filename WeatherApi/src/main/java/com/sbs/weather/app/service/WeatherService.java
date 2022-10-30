@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.sbs.weather.app.cachestore.CacheManager;
 import com.sbs.weather.app.constants.AppConstant;
+import com.sbs.weather.app.exceptions.WeatherAppException;
 import com.sbs.weather.app.model.City;
 import com.sbs.weather.app.model.CityWeather;
 import com.sbs.weather.app.model.ForecastWeather;
@@ -50,7 +51,7 @@ public class WeatherService implements AppConstant {
 				return cityWeather;
 			}catch (Exception e) {
 				logger.error("Error in  fetching external api data :{}",e);
-				return getWeatherDataFromCache(city);
+				throw new WeatherAppException(e);
 			}
 		}
 		
